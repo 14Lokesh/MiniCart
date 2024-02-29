@@ -1,0 +1,15 @@
+<h1>Your Cart</h1>
+<% if @cart_items.any? %>
+<div class="product-cards">
+    <% @cart_items.each do |cart_item| %>
+    <div class="product-card">
+        <h2>Name: <%= cart_item.product.name %> </h2>
+        <p>Description: <%= cart_item.product.description %> </p>
+        <p>Type: <%=cart_item.product.product_type %> </p>
+        <%= link_to 'Remove', remove_from_cart_path(cart_item.id), data: { turbo_method: :delete }, class: "button" %>
+    </div>
+    <% end %>
+</div>
+<% else %>
+  <p>Your cart is empty.</p>
+<% end %>

@@ -1,0 +1,12 @@
+<h1>All Products</h1>
+<div class="product-cards">
+
+<% @products.each do |product| %>
+<div class="product-card">
+    <h2>Name: <%= product.name %></h2>
+    <p>Description: <%= product.description %></p>
+    <p>Type: <%= product.product_type %></p>
+    <%= button_to 'Add to Cart', add_to_cart_path(product_id: product.id), method: :post, class: "button" %>
+  </div>
+<% end %>
+</div>

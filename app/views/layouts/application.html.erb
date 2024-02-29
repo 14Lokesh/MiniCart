@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MiniCart</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+   <div class="parent-div">
+
+<div>
+  <%# flash.each do |key, message| %>
+  <%# <div class="flash <%= key %>
+    <%#= message %>
+  <%# </div> %>
+<%# end %>
+
+<% if current_user %>
+  <p class = "current_user">Welcome: <%= current_user.name  %> (<%= current_user.role  %>) </p>
+   <%= link_to "Logout", logout_path, data: { turbo_method: :delete }, class: "logout-button" %>
+   <% if current_user.role == "vendor" %>
+       <%= link_to 'Create Product', new_product_path, class: "button product-button" %>
+       <%= link_to 'View Product', vendor_products_path, class: "button product-button" %>
+   <% end%>
+   <% if current_user.role == "customer" %>
+       <%= link_to 'View All Product', products_path, class: "button product-button" %>
+       <%= link_to 'Your Cart', show_cart_path, class: "button product-button" %>
+   <% end%>
+
+
+<% end %>
+</div>
+
+
+<div class= "login-signup">
+<% if !current_user %>
+<%= link_to 'SignUp', new_user_path, class: "button" %>
+<%= link_to 'Login', new_session_path, class: "button" %>
+<% end%>
+</div>
+</div>
+ <%= stylesheet_link_tag 'custom' %>
+
+    <%= yield %>
+  </body>
+</html>

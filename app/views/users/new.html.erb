@@ -1,0 +1,23 @@
+<div class = "form-style">
+
+<h1>Signup</h1>
+<%= form_with model: @user, url: users_path, method: :post, class: "inner-form" do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+
+  <%= f.label :role %>
+  <%= f.select :role, User::ROLES %>
+
+  <%= f.submit "Signup" %>
+<% end %>
+
+</div>
