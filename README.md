@@ -1,24 +1,11 @@
-# README
+rails version = Rails 7.0.8.1
+ruby version = ruby 3.0.6p216
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+For authentication i have used Bcrypt gem. 
 
-Things you may want to cover:
+How to run = 
+1. clone the project
+2. create database
+3. bundle install
+4. rails s
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
